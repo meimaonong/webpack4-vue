@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "env"
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-object-rest-spread"
+    ],
+    [
+      "transform-runtime"
+    ],
+    [
+      "syntax-dynamic-import"
+    ],
+    [
+      "lodash"
+    ]
+  ]
+}
