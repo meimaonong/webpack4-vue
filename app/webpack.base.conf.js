@@ -47,20 +47,6 @@ entryKeys.map(function (key) {
       },
     })
   )
-
-  /* if (isProd) {
-    tplViewUrl = `${Dir.controllers_dir}/` + key.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase()) + 'Controller.mjs'
-    // php action
-    pluginsList.push(
-      new HtmlWebpackPlugin({
-        title: key,
-        filename: tplViewUrl,
-        template: `${Dir.tpl}/controller.tpl`,
-        hash: false,
-        chunks: []
-      })
-    )
-  } */
   
 })
 
@@ -98,11 +84,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!postcss-loader'
       },
       {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
+        loader: 'style-loader!css-loader!postcss-loader!less-loader'
       },
       {
         enforce: 'pre',
