@@ -84,11 +84,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'
+        loader: 'style-loader!css-loader!less-loader'
       },
       {
         enforce: 'pre',

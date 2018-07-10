@@ -7,7 +7,79 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    <style>
+    .spinner-w {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    .spinner-main {
+        position: relative;
+        margin: -100px auto 0;
+        top: 45%;
+    }
+    .spinner-txt {
+        font-size: 14px;
+        margin-top: 20px;
+        text-align: center;
+        color: #333333;
+    }
+    .spinner {
+        margin: 100px auto 0;
+        width: 70px;
+        text-align: center;
+    }
+
+    .spinner > div {
+        width: 18px;
+        height: 18px;
+        background-color: #FF7557;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes sk-bouncedelay {
+        0%, 80%, 100% { -webkit-transform: scale(0) }
+        40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bouncedelay {
+        0%, 80%, 100% { 
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        } 40% { 
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+        }
+    }    
+    </style>
+    <div class="spinner-w">
+        <div class="spinner-main">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="spinner-txt">系统初始化中，请稍后...</div>
+        </div>
+    </div>
+    
+</div>
 <% if (process.env.NODE_ENV === 'production') { %>
 <%= require('html-loader!./vendor.html') %>
 <% } else { %>

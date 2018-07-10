@@ -62,12 +62,18 @@ Vue.prototype.mixin = {
 // 路由钩子
 router.beforeEach(async (to, from, next) => {
 
+  console.log('beforeEach')
+
   setTimeout(() => {
     vm && vm.$store.dispatch('Layout/Header/SET_TAB', to)
     vm && vm.$store.dispatch('Layout/Header/SET_NAMELIST', to)
   }, 0)
   
   next()
+})
+
+router.afterEach((to, from) => {
+  console.log('aftereach')
 })
 
 const store = new Vuex.Store({

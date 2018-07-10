@@ -22,7 +22,7 @@ export default {
       that.$store.dispatch('Layout/Header/SET_OBJ', {name: 'Index'})
       setTimeout(() => {
         that.$store.dispatch('Layout/Header/SET_OBJ', { name: '' })
-      }, 0);
+      }, 0)
     }
   },
   mounted() {
