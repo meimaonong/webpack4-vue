@@ -1,8 +1,6 @@
 <style lang="less">
 .sys-header {
 
-  transition :transform 1s;
-
   height: 60px;
   background: #fff;
   display: flex;
