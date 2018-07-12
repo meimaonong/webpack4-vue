@@ -233,7 +233,7 @@ import _ from 'lodash'
 export default {
   data() {
     return {
-      dnum: 3,
+      dnum: 0,
       mitem: {},
     }
   },
@@ -243,12 +243,6 @@ export default {
     }),
     nav_chunk() {
       const that = this
-      let t = [
-        {name: 'q1'},
-        {name: 'q2'},
-        {name: 'q3'}
-      ]
-      console.log(_.chunk(t, 2))
       let res = []
       if (that.dnum > 0 && that.headerState.nav.length > that.dnum) {
         res[0] = _.take(that.headerState.nav, that.dnum - 1)
@@ -256,7 +250,6 @@ export default {
       } else {
         res = [[...that.headerState.nav], []]
       }
-
       return res
     },
     show_item() {
@@ -264,9 +257,7 @@ export default {
       const i = _.findIndex(that.nav_chunk[1], (o) => {
         return o.active
       })
-      if (i > -1) {
-        that.mitem = that.nav_chunk[1][i]
-      }
+      i > -1 && (that.mitem = that.nav_chunk[1][i])
       return that.mitem
     }
   },
