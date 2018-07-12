@@ -5,6 +5,7 @@ import routeList from './src/views/modules/**/route.js'
 
 // vuex store
 import storeList from './src/**/mainStore.js'
+import { resolve } from 'path';
 
 // 配置路由
 Vue.use(VueRouter)
@@ -41,6 +42,15 @@ const processRoute = (vm, to) => {
       that.$store.dispatch('Layout/Header/SET_OBJ', { name: '' })
     }, 0)
   }
+}
+
+Vue.prototype.re = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const a = ['item1', 'item2']
+      resolve(a)
+    }, 3000);
+  })
 }
 
 Vue.prototype.mixin = {

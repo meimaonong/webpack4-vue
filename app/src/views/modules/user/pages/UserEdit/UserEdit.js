@@ -2,13 +2,16 @@ export default {
   name: 'UserEdit',
   data() {
     return {
-      msg: 'testmsg'
+      msg: 'testmsg',
+      list: [],
     }
   },
   mixins: [Vue.prototype.mixin],
 
-  mounted() {
+  async mounted() {
     const that = this
+
+    that.list = await that.re()
 
     ElementUI.Message({
       message: 'UserEdit',

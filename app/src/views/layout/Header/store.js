@@ -90,14 +90,14 @@ export default {
         const i = _.findIndex(state.nav, (o) => {
           return o.name == payload.name && o.path == payload.path
         })
-        i > -1 ? state.nav.splice(i, 1)  : ''
+        i > -1 && state.nav.splice(i, 1)
   
         const j = _.findIndex(state.nav, (o) => {
           return o.active
         })
        
         if (j > -1) {
-
+          
         } else {
           if (state.nav.length > 0) {
             if (state.nav[i]) {
