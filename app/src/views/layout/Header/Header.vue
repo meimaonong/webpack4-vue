@@ -1,6 +1,5 @@
 <style lang="less">
 .sys-header {
-
   height: 60px;
   background: #fff;
   display: flex;

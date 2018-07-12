@@ -237,6 +237,9 @@ export default {
       mitem: {},
     }
   },
+  watch: {
+    'headerState.nav': 'checkTab'
+  },
   computed: {
     ...Vuex.mapState({
       headerState: state => state.Layout.Header
@@ -289,9 +292,30 @@ export default {
       that.$router.push({path: obj.path, query: obj.query, params: obj.params})
 
     },
+    /**
+     * 基于页面宽带管理导航折叠状态
+     */
+    checkTab() {
+      const that = this
+      const tab = $('.sys-tab-w')
+      const w = tab.width()
+      const iw = 112
+      const pad = 15
+      console.log('checkTab')
+      if (iw * that.headerState.nav.length + pad >= w) {
+        that.dnum = parseInt((w - pad) / iw)
+      } else {
+        that.dnum = 0
+      }
+    },
+    initFunc() {
+      const that = this
+      that.checkTab()
+      $(window).resize(()=>{ that.checkTab() })
+    }
   },
   mounted() {
-    
+    this.initFunc()
   }
 }
 </script>
